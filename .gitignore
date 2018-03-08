@@ -1,0 +1,15 @@
+prodigen-backend.iml
+
+log-dir/
+
+upload-dir/
+
+\.gradle/
+
+\.idea/
+
+\.gradle/2\.13/taskArtifacts/
+
+build/*
+
+!* .gitkeep/
