@@ -8,6 +8,7 @@ RUN \
        gradle \
        curl \
        graphviz \
+       nano \
    && apt-get clean
 
 RUN curl https://archive.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz | tar xvz
@@ -24,3 +25,5 @@ RUN mkdir /data
 RUN mkdir /data/db
 
 EXPOSE 8080 6066 7077 8083
+
+CMD mongod --fork --logpath /var/log/mongodb/mongod.log && ./spark-2.1.0-bin-hadoop2.7/sbin/start-master.sh -h 172.17.0.2 && ./spark-2.1.0-bin-hadoop2.7/sbin/start-slave.sh spark://172.17.0.2:6066 && ./spark-2.1.0-bin-hadoop2.7/bin/spark-submit --class bpm.Application /opt/prodigen/out/artifacts/prodigen_backend_jar/prodigen-backend.jar
