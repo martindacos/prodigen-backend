@@ -36,7 +36,6 @@ public class SparkConnection {
         sparkSession = SparkSession
                 .builder()
                 .appName(appName)
-                .master(sparkMaster)
                 .config("spark.mongodb.input.uri", DATABASE + coll)
                 .config("spark.mongodb.output.uri", DATABASE + coll)
                 .getOrCreate();

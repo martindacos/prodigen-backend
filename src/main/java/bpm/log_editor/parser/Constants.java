@@ -16,8 +16,7 @@ public interface Constants {
     //SPARK
     Integer NUM_PARTITIONS = 6;
     String DATABASE = "mongodb://127.0.0.1/test.";
-    //String MASTER = "local[*]";
-    String MASTER = "spark://localhost:6066";
+    String MASTER = "local[*]";
 
     //MongoDB connection
     String HOST = "localhost";
